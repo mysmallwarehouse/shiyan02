@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_181">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="E:/java实训/05-访问数据库/MySQL工具及安装说明/mysql-connector-java-5.1.16/mysql-connector-java-5.1.16-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/jackson-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/jackson-core-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/jackson-databind-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/taglibs-standard-compat-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/taglibs-standard-impl-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/taglibs-standard-jstlel-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/王永顺/Downloads/JavaWeb技术及应用—实验项目素材/Q_ITOffer_Manage_lib/taglibs-standard-spec-1.2.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
