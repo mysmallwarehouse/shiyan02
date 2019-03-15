@@ -7,54 +7,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wys.dao.userDao;
 import com.wys.javabean.User;
 
-/**
- * Servlet implementation class userAddServlet
- */
 @WebServlet("/userAddServlet")
 public class userAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public userAddServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//设置读取编码
-		request.setCharacterEncoding("utf-8");
-		
-		//读取请求信息
+	public userAddServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 设置请求字符编码
+		request.setCharacterEncoding("UTF-8");
+		// 获取用户添加信息
 		String userLogname = request.getParameter("userLogname");
 		String userPwd = request.getParameter("userPwd");
 		String userRealname = request.getParameter("userRealname");
 		String userEmail = request.getParameter("userEmail");
-		int userRole = (request.getParameter("userRole")==null)?1:
-		Integer.parseInt(request.getParameter("userRole"));
-		
-		int userState = (request.getParameter("userState")==null)?1:
-			Integer.parseInt(request.getParameter("userState"));
-		
-		User user = new User(userLogname,userPwd,userRealname,userEmail);
-		
-		//读取用户信息
-		//
+		int userRole = (request.getParameter("userRole") == null) ? 3
+				: Integer.parseInt(request.getParameter("userRole"));
+		int userState = (request.getParameter("userState") == null) ? 1
+				: Integer.parseInt(request.getParameter("userState"));
+		// 定义一个用来封装用户信息的JavaBean
+		User user = new User(userLogname, userPwd, userRealname, userEmail, userRole, userState);
+		// 用户信息添加
+		userDao dao = new userDao();
+		dao.save(user);
+		// 添加成功，重定向到响应页面
+		response.sendRedirect("manage/userList.html");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

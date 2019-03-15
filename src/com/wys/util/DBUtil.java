@@ -1,32 +1,61 @@
 package com.wys.util;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBUtil {
 
-	public static void main(String args[]) {
+	static {
 		try {
-			Class.forName("com.mysql.jdbc.Driver"); // 加载MYSQL JDBC驱动程序
-			// Class.forName("org.gjt.mm.mysql.Driver");
-			System.out.println("Success loading Mysql Driver!");
-		} catch (Exception e) {
-			System.out.print("Error loading Mysql Driver!");
-			e.printStackTrace();
-		}
-		try {
-			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/itoffer", "root", "123456789");
-			// 连接URL为 jdbc:mysql//服务器地址/数据库名 ，后面的2个参数分别是登陆用户名和密码
-
-			System.out.println("Success connect Mysql server!");
-			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from tb_users");
-			// user 为你表的名称
-			while (rs.next()) {
-				System.out.println(rs.getString("USER_LOGNAME"));
-			}
-		} catch (Exception e) {
-			System.out.print("get data error!");
+			Class.forName("org.gjt.mm.mysql.Driver");
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
+
+	public static Connection getConnection() {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/itoffer", "root", "123456789");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+
+	public static void closeJDBC(ResultSet rs, Statement stmt, Connection conn) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println("打开连接");
+		Connection conn = DBUtil.getConnection();
+		System.out.println("获取的Connection：" + conn);
+		System.out.println("关闭连接");
+		DBUtil.closeJDBC(null, null, conn);
+	}
+
 }
