@@ -17,7 +17,7 @@ public class Company {
 	public Company( String companyName, String companyArea, String companySize, String companyType,
 			String companybrief, int companyState, int companySort, int companyViewnum, String companyPic) {
 		super();
-		this.companyId = companyId;
+		//this.companyId = companyId;
 		this.companyName = companyName;
 		this.companyArea = companyArea;
 		this.companySize = companySize;

@@ -15,7 +15,7 @@
 </div>
 <div class="formbody">
   <div class="usual">
-  <form name="frm" action="../UserAddServlet" method="post">
+  <form name="frm" action="../userAddServlet" method="post">
     <div class="tabson">
       <ul class="forminfo">
       	<li>
