@@ -39,12 +39,12 @@ public class userAddServlet extends HttpServlet {
 				//dao.save(user);
 				//跳转
 				// 添加成功，重定向到响应页面
-				//if(n==1) {
+				if(n==1) {
 					response.sendRedirect(request.getContextPath()+"/manage/userList.html");
 					//request.getRequestDispatcher("/manage/userList.html").forward(request, response);
-		//		}else {
-			//		response.sendRedirect(request.getContextPath()+"/manage/error.jsp");
-			//	}
+				}else {
+					response.sendRedirect(request.getContextPath()+"/manage/error.jsp");
+				}
 				
 				
 			
