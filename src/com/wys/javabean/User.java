@@ -2,8 +2,13 @@
 package com.wys.javabean;
 
 /**
+<<<<<<< HEAD
  * 后台管理用户JavaBean
  
+=======
+ * 鍚庡彴绠＄悊鐢ㄦ埛JavaBean
+ * 
+>>>>>>> branch 'master' of https://github.com/mysmallwarehouse/shiyan1.git
  */
 public class User {
 	private int userId;
