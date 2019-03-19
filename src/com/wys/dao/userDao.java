@@ -15,7 +15,7 @@ public class userDao {
 	/*public void save(User user) {
 		java.sql.Connection conn = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO tb_users(USER_LOGNAME,USER_PWD,USER_REALNAME,USER_EMAIL,USER_ROLE,USER_STATE"+ ") VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO tb_users(USER_LOGNAME,USER_PWD,USER_REALNAME,USER_EMAIL,USER_ROLE,USER_STATE"+ ") VALUES(SEQ_USERS.NEXTVAL,?,?,?,?,?,?)";
 		try {
 			pstmt = (PreparedStatement) conn.prepareStatement(sql);
 			pstmt.setString(1, user.getUserLogname());
@@ -28,7 +28,9 @@ public class userDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}*/
+	
+	*/
+	
 
 	public int addUser(User user) {
 		int n = 0;
@@ -54,4 +56,6 @@ public class userDao {
 		
 		return n;
 	}
+
+
 }
