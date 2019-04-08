@@ -3,7 +3,7 @@ package com.wys.dao;
 
 import java.sql.*;
 
-
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 import com.wys.javabean.User;
 import com.wys.util.DBUtil;
 
@@ -57,5 +57,81 @@ public class userDao {
 		return n;
 	}
 
+	
+	
+	
+	
+/**
+ * ÓÃ‘ôµÇä›	
+ */
+	
+	public User login(String userLogname,String userPwd) {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement stmt = null;
+		User user = null;
+		ResultSet rs = null;
+		String sql = "SELECT user_id,user_realname,user_email,user_role,user_state FROM tb_users WHERE user_logname=? and user_pwd=?";
+
+						try {
+							stmt = conn.prepareStatement(sql);
+							stmt.setString(1, userLogname);
+							stmt.setString(2, userPwd);
+							 rs =  stmt.executeQuery();
+							if(rs.next()){
+								user = new User();
+								user.setUserId(rs.getInt(1));
+								user.setUserLogname(rs.getString(2));
+								user.setUserPwd(rs.getString(3));
+								
+								user.setUserRealname(rs.getString(4));
+								user.setUserEmail(rs.getString(5));
+								user.setUserRole(rs.getInt(6));
+								user.setUserState(rs.getInt(7));
+								//user.setUserId(rs.getInt(8));
+							
+							}
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}finally {
+							DBUtil.closeJDBC(rs, stmt, conn);
+						}
+						return user;
+						
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

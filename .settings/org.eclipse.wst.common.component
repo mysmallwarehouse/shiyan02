@@ -2,7 +2,7 @@
     <wb-module deploy-name="shiyan01">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="shiyan01"/>
         <property name="java-output-path" value="/shiyan01/build/classes"/>
+        <property name="context-root" value="shiyan02"/>
     </wb-module>
 </project-modules>
